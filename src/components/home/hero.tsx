@@ -12,6 +12,7 @@ export function Hero() {
           alt="Ônibus da Translima em movimento"
           fill
           priority
+          loading="eager"
           className="object-cover opacity-[0.56]"
           sizes="100vw"
         />

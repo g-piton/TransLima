@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 140" role="img" aria-labelledby="title">
+  <title id="title">La Basque</title>
+  <rect width="300" height="140" fill="white"/>
+  <ellipse cx="150" cy="62" rx="112" ry="38" fill="none" stroke="#d71920" stroke-width="6"/>
+  <ellipse cx="150" cy="62" rx="104" ry="31" fill="none" stroke="#1f2a6d" stroke-width="3"/>
+  <text x="74" y="70" fill="#211b55" font-family="Georgia, serif" font-size="43" font-style="italic">La Basque</text>
+  <text x="74" y="108" fill="#5c5578" font-family="Arial, sans-serif" font-size="17" letter-spacing="4">Café &amp; Sorvetes Premium</text>
+</svg>

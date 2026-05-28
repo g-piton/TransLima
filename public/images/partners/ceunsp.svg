@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 140" role="img" aria-labelledby="title">
+  <title id="title">CEUNSP</title>
+  <rect width="340" height="140" fill="white"/>
+  <path d="M60 26 L81 104 L20 55 L100 55 L39 104 Z" fill="none" stroke="#ef3338" stroke-width="8" stroke-linejoin="round"/>
+  <text x="118" y="62" fill="#204d7a" font-family="Arial, sans-serif" font-size="48" font-weight="800">CEUNSP</text>
+  <text x="120" y="90" fill="#204d7a" font-family="Arial, sans-serif" font-size="24">Centro Universitário</text>
+  <text x="120" y="116" fill="#204d7a" font-family="Arial, sans-serif" font-size="24">N. Sra. do Patrocínio</text>
+</svg>

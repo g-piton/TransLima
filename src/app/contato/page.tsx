@@ -5,7 +5,7 @@ import { Section } from "@/components/ui/section";
 export const metadata: Metadata = {
   title: "Contato",
   description:
-    "Entre em contato com a Translima por telefone, WhatsApp, e-mail ou formulário."
+    "Solicite um orçamento de transporte com a Translima pelo WhatsApp."
 };
 
 export default function ContactPage() {

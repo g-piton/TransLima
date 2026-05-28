@@ -15,13 +15,4 @@ export const leadSchema = z.object({
   message: z.string().trim().max(1000, "Mensagem muito longa").optional()
 });
 
-export const contactSchema = z.object({
-  name: requiredText("Nome"),
-  email: z.string().trim().email("Informe um e-mail válido"),
-  phone: z.string().trim().optional(),
-  subject: requiredText("Assunto"),
-  message: requiredText("Mensagem", 10).max(1200, "Mensagem muito longa")
-});
-
 export type LeadFormData = z.infer<typeof leadSchema>;
-export type ContactFormData = z.infer<typeof contactSchema>;

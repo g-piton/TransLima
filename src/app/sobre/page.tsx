@@ -19,7 +19,7 @@ export default function AboutPage() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
             <Image
-              src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1400&q=80"
+              src="/images/onibus.png"
               alt="Veículo de transporte em operação"
               fill
               className="object-cover"

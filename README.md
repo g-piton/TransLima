@@ -1,6 +1,6 @@
 # Translima Campinas Transportes e Turismo
 
-Site institucional moderno para a Translima Campinas Transportes e Turismo, desenvolvido com Next.js, React, TypeScript e Tailwind CSS.
+Site institucional da Translima Campinas Transportes e Turismo, desenvolvido com Next.js, React, TypeScript e Tailwind CSS.
 
 ## Stack
 
@@ -10,7 +10,7 @@ Site institucional moderno para a Translima Campinas Transportes e Turismo, dese
 - React Hook Form e Zod
 - Lucide React
 - Framer Motion
-- Prisma ORM com estrutura opcional para PostgreSQL
+- Prisma ORM com suporte opcional a PostgreSQL
 
 ## Instalação
 
@@ -40,7 +40,7 @@ npm run lint
 
 ## Banco de dados
 
-O site funciona sem banco configurado. Quando `DATABASE_URL` estiver presente, as rotas de API salvam leads de orçamento e mensagens de contato no PostgreSQL via Prisma.
+O site funciona sem banco configurado. Quando `DATABASE_URL` estiver presente, a API salva as solicitações de orçamento no PostgreSQL via Prisma.
 
 Crie um arquivo `.env`:
 
@@ -54,12 +54,11 @@ Depois rode:
 npx prisma migrate dev
 ```
 
-## Rotas de API
+## API
 
-- `POST /api/leads`: recebe solicitações de orçamento
-- `POST /api/contact`: recebe mensagens de contato
+- `POST /api/leads`: recebe solicitações de orçamento.
 
-## Envio de orçamento por WhatsApp
+## Orçamento por WhatsApp
 
 O formulário de orçamento valida os dados e abre o WhatsApp com uma mensagem preenchida para o número `19 981348335`. Se `DATABASE_URL` estiver configurado, a solicitação também fica salva no banco.
 
@@ -67,7 +66,7 @@ Para alterar o número de destino, edite `quoteWhatsappNumber` em `src/component
 
 ## Conteúdo editável
 
-Os dados institucionais mockados ficam em `src/data`:
+Os dados institucionais ficam em `src/data`:
 
 - `services.ts`
 - `fleet.ts`

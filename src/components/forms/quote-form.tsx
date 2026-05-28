@@ -1,7 +1,8 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Send } from "lucide-react";
+import Link from "next/link";
+import { ArrowLeft, Send } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { services } from "@/data/services";
@@ -10,7 +11,7 @@ import { FormField } from "./form-field";
 
 const inputClass =
   "focus-ring w-full rounded-lg border-slate-300 bg-white text-translima-black shadow-sm";
-const quoteWhatsappNumber = "5519981348335";
+const quoteWhatsappNumber = "5519998760025";
 
 function formatDate(value: string) {
   return new Intl.DateTimeFormat("pt-BR", {
@@ -30,7 +31,7 @@ function buildWhatsappUrl(data: LeadFormData) {
     `Destino: ${data.destination}`,
     `Data desejada: ${formatDate(data.desiredDate)}`,
     "",
-    `Mensagem: ${data.message || "Não informada"}`
+    `Roteiro: ${data.message || "Não informado"}`
   ].join("\n");
 
   return `https://wa.me/${quoteWhatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -47,16 +48,9 @@ export function QuoteForm() {
     resolver: zodResolver(leadSchema)
   });
 
-  async function onSubmit(data: LeadFormData) {
+  function onSubmit(data: LeadFormData) {
     setStatus("idle");
     window.open(buildWhatsappUrl(data), "_blank", "noopener,noreferrer");
-
-    await fetch("/api/leads", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    }).catch(() => null);
-
     reset();
     setStatus("success");
   }
@@ -98,26 +92,43 @@ export function QuoteForm() {
         <input className={inputClass} {...register("destination")} />
       </FormField>
       <div className="sm:col-span-2">
-        <FormField label="Mensagem" error={errors.message?.message}>
-          <textarea className={inputClass} rows={4} {...register("message")} />
+        <FormField
+          label="Descreva brevemente o roteiro"
+          error={errors.message?.message}
+        >
+          <textarea
+            className={inputClass}
+            rows={4}
+            placeholder="Exemplo: saída de Campinas, parada em Indaiatuba e destino final em Sorocaba."
+            {...register("message")}
+          />
         </FormField>
       </div>
-      <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-translima-green px-5 py-3 text-sm font-bold text-white transition hover:bg-translima-dark disabled:cursor-not-allowed disabled:opacity-70"
-        >
-          <Send aria-hidden size={18} />
-          {isSubmitting ? "Enviando" : "Solicitar orçamento"}
-        </button>
+      <div className="sm:col-span-2">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <Link
+            href="/"
+            className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-translima-green px-5 py-3 text-sm font-bold text-translima-dark transition hover:bg-translima-light"
+          >
+            <ArrowLeft aria-hidden size={18} />
+            Voltar ao menu principal
+          </Link>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-translima-green px-5 py-3 text-sm font-bold text-white transition hover:bg-translima-dark disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            <Send aria-hidden size={18} />
+            {isSubmitting ? "Enviando" : "Enviar no WhatsApp"}
+          </button>
+        </div>
         {status === "success" && (
-          <p className="text-sm font-semibold text-translima-dark">
+          <p className="mt-3 text-sm font-semibold text-translima-dark sm:text-right">
             Abrimos o WhatsApp com a solicitação preenchida.
           </p>
         )}
         {status === "error" && (
-          <p className="text-sm font-semibold text-red-700">
+          <p className="mt-3 text-sm font-semibold text-red-700 sm:text-right">
             Não foi possível enviar agora. Tente novamente em instantes.
           </p>
         )}

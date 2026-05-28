@@ -4,8 +4,6 @@ import {
   CalendarCheck,
   MapPinned,
   Plane,
-  Route,
-  ShieldCheck,
   UsersRound
 } from "lucide-react";
 
@@ -21,12 +19,6 @@ export const services = [
     description:
       "Atendimento reservado para executivos, eventos de negócios e deslocamentos com maior privacidade.",
     icon: BriefcaseBusiness
-  },
-  {
-    title: "Fretamento contínuo",
-    description:
-      "Rotas recorrentes para colaboradores, estudantes e contratos de longo prazo.",
-    icon: Route
   },
   {
     title: "Fretamento eventual",
@@ -51,11 +43,5 @@ export const services = [
     description:
       "Traslados para Viracopos, Congonhas, Guarulhos e demais aeroportos da região.",
     icon: Plane
-  },
-  {
-    title: "Linha executiva Campinas x Sorocaba",
-    description:
-      "Itinerário executivo entre Campinas e Sorocaba com horários organizados por sentido.",
-    icon: ShieldCheck
   }
 ];

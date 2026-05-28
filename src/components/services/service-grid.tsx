@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/ui/fade-in";
 
 export function ServiceGrid() {
   return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((service, index) => {
         const Icon = service.icon;
         return (
